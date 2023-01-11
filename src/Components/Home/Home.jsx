@@ -7,7 +7,7 @@ const Home = () => {
     <div className="Home">
       {/* Here goes the background */}
 
-      <h1>WELCOME TO MEDICAL-RECORD APP</h1>
+      <h1>My Medical App</h1>
 
       {/* Here goes the Register: Input email, password and button to submit */}
 
