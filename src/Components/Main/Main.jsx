@@ -30,6 +30,7 @@ const Main = () => {
   return (
     <div className="Main">
       {/* here goes all the INPUTS  */}
+      <h2>I am working on this component</h2>
 
       <Form onSubmit={submitHandler}>
         <input ref={inputValueBp} type="number" min={0} max={500} />
