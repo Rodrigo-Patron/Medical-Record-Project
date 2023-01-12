@@ -1,0 +1,68 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(255, 248, 249);
+
+  h1 {
+    font-size: 3.5rem;
+    padding: 3rem;
+  }
+
+  .homeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+
+    img {
+      width: 35rem;
+      border-radius: 10px;
+      margin-right: 5rem;
+    }
+    .formContainer {
+      form {
+        color: rgb(65, 60, 60);
+        border: none;
+        border-radius: 10px;
+        margin: 3rem;
+        padding: 2rem;
+        background-color: rgb(252, 207, 215, 0.5);
+        h2 {
+          font-size: 2rem;
+          color: rgb(65, 60, 60);
+          text-align: center;
+          margin-bottom: 1.2rem;
+        }
+        input {
+          margin-bottom: 1rem;
+          border: none;
+
+          &::placeholder {
+            color: rgb(65, 60, 60, 0.4);
+          }
+          &:focus {
+            box-shadow: 0 0 1px 3px rgb(252, 207, 215);
+          }
+        }
+        .Btn {
+          text-align: center;
+          button {
+            background-color: rgb(250, 195, 205);
+            color: rgb(65, 60, 60);
+            border: none;
+            &:active {
+              transform: scale(1.03);
+            }
+            &:hover {
+              color: white;
+              background-color: rgb(65, 60, 60);
+            }
+          }
+        }
+      }
+    }
+  }
+}

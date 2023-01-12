@@ -1,33 +1,94 @@
+import { Button, Form } from "react-bootstrap";
 import "./Home.scss";
-import { Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import medicalPic from "../../img/pink-pic.jpg";
+import { useRef, useContext } from "react";
+import { MedicalContext } from "../../MedicalContext";
 
 const Home = () => {
+  const { setUser, user } = useContext(MedicalContext);
+
+  const inputName = useRef(null);
+  const inputEmail = useRef(null);
+  const inputPassword = useRef(null);
+
+  const submitRegisterForm = (e) => {
+    e.preventDefault();
+
+    console.log(inputName.current.value);
+    console.log(inputEmail.current.value);
+    console.log(inputPassword.current.value);
+
+    setUser([
+      {
+        name: inputName.current.value,
+        email: inputEmail.current.value,
+        password: inputPassword.current.value,
+      },
+      ...user,
+    ]);
+  };
+
+  const submitLoginForm = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="Home">
-      {/* Here goes the background */}
+      <h1>My Medical-Record App</h1>
+      <div className="homeContainer">
+        <img src={medicalPic} alt="" />
+        <div className="formContainer">
+          {/* REGISTER FORM */}
 
-      <h1>My Medical App</h1>
+          <Form onSubmit={submitRegisterForm}>
+            <h2>Register</h2>
+            <Form.Group className="formBox">
+              <Form.Label>Full name</Form.Label>
+              <Form.Control
+                type="text"
+                ref={inputName}
+                placeholder="Type name"
+                required
+              />
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                ref={inputEmail}
+                placeholder="Type email"
+                required
+              />
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                ref={inputPassword}
+                placeholder="Type password"
+                required
+              />
+              <div className="Btn">
+                <Button type="submit">Register</Button>
+              </div>
+            </Form.Group>
+          </Form>
 
-      {/* Here goes the Register: Input email, password and button to submit */}
+          {/* LOGIN FORM */}
 
-      <form>
-        <input type="email" placeholder="Type Email" />
-        <input type="password" placeholder="Type Password" />
-        <Button variant="dark">Register</Button>
-      </form>
-
-      {/* Here goes the Login : Input email, password and button to submit.. once we click on submit it takes you to another page "MAIN"
-      
-      
-      */}
-      <form>
-        <input type="email" placeholder="Type Email" />
-        <input type="password" placeholder="Type Password" />
-        <NavLink to="main">
-          <Button variant="dark">Log in</Button>
-        </NavLink>
-      </form>
+          <Form onSubmit={submitLoginForm}>
+            <h2>Log in</h2>
+            <Form.Group className="formBox">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Type email" />
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Type password" />
+              <div className="Btn">
+                <NavLink to="main">
+                  <Button type="submit">Log in</Button>
+                </NavLink>
+              </div>
+            </Form.Group>
+          </Form>
+        </div>
+      </div>
     </div>
   );
 };
