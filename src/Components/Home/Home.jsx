@@ -25,7 +25,7 @@ const Home = () => {
         email: inputEmail.current.value,
         password: inputPassword.current.value,
       },
-      ...user,
+      ...user
     ]);
   };
 
