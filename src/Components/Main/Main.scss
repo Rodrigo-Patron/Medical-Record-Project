@@ -1,0 +1,37 @@
+.Main {
+  min-height: 100vh;
+
+  .wrapper {
+    h3 {
+      text-align: center;
+    }
+
+    .date {
+      input {
+        margin-bottom: 0.4rem;
+      }
+    }
+    margin: 4rem 0;
+
+    label {
+      font-weight: bolder;
+      font-size: 20px;
+    }
+
+    Button {
+      margin-top: 0.6rem;
+    }
+
+    .input-container {
+      margin-bottom: 0.3rem;
+    }
+  }
+  .data-wrapper {
+    border: 2px solid gray;
+  }
+
+  .logOut {
+    width: 100px;
+    margin-top: 2rem;
+  }
+}
