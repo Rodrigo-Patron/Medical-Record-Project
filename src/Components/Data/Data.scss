@@ -1,31 +1,60 @@
-.listItem {
-  h3 {
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.Data {
+  .row {
+    font-size: 20px;
 
-  .date {
-    width: fit-content;
-    border: 3px solid red;
-    background-color: green;
-    color: white;
-    padding: 0.3rem;
-    border-radius: 0.5rem;
-    margin-left: 0.2rem;
-  }
-
-  .unit {
-    display: flex;
-
-    .icon {
-      font-size: 40px;
-      margin-right: 1rem;
+    .cols {
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.32rem;
     }
 
-    .numbers {
-      font-size: 30px;
+    .one,
+    .three {
+      background-color: rgb(243, 237, 237);
+    }
+
+    .two {
+      background-color: #f3c2c7;
+
+      .measure {
+        font-weight: bolder;
+        font-size: 25px;
+      }
+    }
+  }
+
+  .listItem {
+    h3 {
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .date {
+      width: fit-content;
+      border: 3px solid red;
+      background-color: green;
+      color: white;
+      padding: 0.3rem;
+      border-radius: 0.5rem;
+      margin-left: 0.2rem;
+    }
+
+    .unit {
+      display: flex;
+      justify-content: space-evenly;
+
+      .icon {
+        font-size: 40px;
+        margin-right: 1rem;
+      }
+
+      .numbers {
+        font-size: 30px;
+      }
     }
   }
 }
