@@ -4,7 +4,15 @@
   align-items: end;
 
   .logOut {
-    background-color: pink;
+    background-color: rgb(250, 195, 205);
+    color: rgb(65, 60, 60);
     border: none;
+    &:active {
+      transform: scale(1.03);
+    }
+    &:hover {
+      color: white;
+      background-color: rgb(65, 60, 60);
+    }
   }
 }
