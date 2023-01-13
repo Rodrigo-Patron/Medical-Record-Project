@@ -4,7 +4,7 @@ export const MedicalContext = createContext(null);
 
 
 const registeredUser = JSON.parse(localStorage.getItem("registeredUser")) || [];
-const defaultUnits = JSON.parse(localStorage.getItem("allUnits"));
+const defaultUnits = JSON.parse(localStorage.getItem("allUnits")) || [];
 
 export const MedicalContextProvider = ({ children }) => {
   // UNITS

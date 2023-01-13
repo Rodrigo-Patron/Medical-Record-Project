@@ -30,7 +30,7 @@ const editHandler=()=>{
     <div className="Data">
 
 
-{units && units.map((item,i) =><Row className='row'>
+{units && units.map((item,i) =><Row className='row' key={i}>
   
   <Col xl="4" className='cols one'>
    {item.icon} {item.type}
