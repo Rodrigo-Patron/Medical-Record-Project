@@ -6,7 +6,7 @@ import { MedicalContext } from "../../MedicalContext";
 
 const Login = () => {
   const { user } = useContext(MedicalContext);
-
+  console.log(user);
   const navigate = useNavigate();
 
   const inputLoginEmail = useRef(null);
