@@ -5,13 +5,12 @@ import { MedicalContext } from "../../MedicalContext";
 import { Form, FormControl, Container, Row, Button } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import { FaHeartbeat } from "react-icons/fa";
-import {FaWeight} from "react-icons/fa";
-import {BsDropletFill} from "react-icons/bs";
-import {SiGoldenline} from "react-icons/si";
+import { FaWeight } from "react-icons/fa";
+import { BsDropletFill } from "react-icons/bs";
+import { SiGoldenline } from "react-icons/si";
+import Logout from "../Logout/Logout";
 
 const Main = () => {
- 
-
   const inputValueBp = useRef();
   const inputValueHeartRate = useRef();
   const inputValueSugar = useRef();
@@ -19,20 +18,38 @@ const Main = () => {
   const inputValueWeight = useRef();
   const inputValueDate = useRef();
 
-  const {units,setUnits } = useContext(MedicalContext);
+  const { units, setUnits } = useContext(MedicalContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
     setUnits([
-      
-      { number: inputValueBp.current.value, type: "Blood pressure",unitMeasure:"mmHg" },
-      { number: inputValueHeartRate.current.value, type: "HeartRate",unitMeasure:"Bpm"},
-      { number: inputValueSugar.current.value, type: "sugar",unitMeasure:"mmol/L" },
-      { number: inputValueOxygen.current.value, type: "oxygen",unitMeasure:"mgL"},
-      { number: inputValueWeight.current.value, type: "Weight",unitMeasure:"kg"},
+      {
+        number: inputValueBp.current.value,
+        type: "Blood pressure",
+        unitMeasure: "mmHg",
+      },
+      {
+        number: inputValueHeartRate.current.value,
+        type: "HeartRate",
+        unitMeasure: "Bpm",
+      },
+      {
+        number: inputValueSugar.current.value,
+        type: "sugar",
+        unitMeasure: "mmol/L",
+      },
+      {
+        number: inputValueOxygen.current.value,
+        type: "oxygen",
+        unitMeasure: "mgL",
+      },
+      {
+        number: inputValueWeight.current.value,
+        type: "Weight",
+        unitMeasure: "kg",
+      },
     ]);
 
-    
     //^input will show on top
     inputValueDate.current.value = "";
     inputValueHeartRate.current.value = "";
@@ -45,6 +62,7 @@ const Main = () => {
   return (
     <div className="Main">
       <Container>
+        <Logout />
         <Row className="wrapper">
           <h3>Hallo....Please note down your records!</h3>
           <Form onSubmit={submitHandler}>
@@ -113,15 +131,10 @@ const Main = () => {
           </Form>
         </Row>
 
-        
         <Row className="data-wrapper">
-        {/* {units.length<1 && <h4>No records yet</h4>} */}
-          <Data/>
-          
-          
-        
+          {/* {units.length<1 && <h4>No records yet</h4>} */}
+          <Data />
         </Row>
-        <Button className="logOut">Log Out</Button>
       </Container>
     </div>
   );
