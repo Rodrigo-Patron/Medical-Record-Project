@@ -4,11 +4,13 @@ import { useContext, useRef } from "react";
 import { MedicalContext } from "../../MedicalContext";
 import { Form, FormControl, Container, Row, Button } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
-import { v4 as uuidv4 } from "uuid";
-import { FaWeight } from "react-icons/fa";
+import { FaHeartbeat } from "react-icons/fa";
+import {FaWeight} from "react-icons/fa";
+import {BsDropletFill} from "react-icons/bs";
+import {SiGoldenline} from "react-icons/si";
 
 const Main = () => {
-  const id = uuidv4();
+ 
 
   const inputValueBp = useRef();
   const inputValueHeartRate = useRef();
@@ -17,17 +19,17 @@ const Main = () => {
   const inputValueWeight = useRef();
   const inputValueDate = useRef();
 
-  const { units, setUnits } = useContext(MedicalContext);
+  const {units,setUnits } = useContext(MedicalContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
     setUnits([
-      { date: inputValueDate.current.value },
-      { text: inputValueBp.current.value, type: "Bp" },
-      { text: inputValueHeartRate.current.value, type: "HeartRate" },
-      { text: inputValueSugar.current.value, type: "sugar" },
-      { text: inputValueOxygen.current.value, type: "oxygen" },
-      { text: inputValueWeight.current.value, type: "Weight" },
+      
+      { number: inputValueBp.current.value, type: "Blood pressure",unitMeasure:"mmHg",icon:<BsDropletFill/> },
+      { number: inputValueHeartRate.current.value, type: "HeartRate",unitMeasure:"Bpm",icon:<FaHeartbeat/> },
+      { number: inputValueSugar.current.value, type: "sugar",unitMeasure:"mmol/L" },
+      { number: inputValueOxygen.current.value, type: "oxygen",unitMeasure:"mgL",icon:<SiGoldenline/> },
+      { number: inputValueWeight.current.value, type: "Weight",unitMeasure:"kg",icon:<FaWeight/> },
     ]);
 
     // icon:<FaWeight className='icon'/>,
@@ -111,8 +113,13 @@ const Main = () => {
           </Form>
         </Row>
 
+        
         <Row className="data-wrapper">
-          <Data />
+        {/* {units.length<1 && <h4>No records yet</h4>} */}
+          <Data/>
+          
+          
+        
         </Row>
         <Button className="logOut">Log Out</Button>
       </Container>
