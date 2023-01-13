@@ -25,14 +25,14 @@ const Main = () => {
     e.preventDefault();
     setUnits([
       
-      { number: inputValueBp.current.value, type: "Blood pressure",unitMeasure:"mmHg",icon:<BsDropletFill/> },
-      { number: inputValueHeartRate.current.value, type: "HeartRate",unitMeasure:"Bpm",icon:<FaHeartbeat/> },
+      { number: inputValueBp.current.value, type: "Blood pressure",unitMeasure:"mmHg" },
+      { number: inputValueHeartRate.current.value, type: "HeartRate",unitMeasure:"Bpm"},
       { number: inputValueSugar.current.value, type: "sugar",unitMeasure:"mmol/L" },
-      { number: inputValueOxygen.current.value, type: "oxygen",unitMeasure:"mgL",icon:<SiGoldenline/> },
-      { number: inputValueWeight.current.value, type: "Weight",unitMeasure:"kg",icon:<FaWeight/> },
+      { number: inputValueOxygen.current.value, type: "oxygen",unitMeasure:"mgL"},
+      { number: inputValueWeight.current.value, type: "Weight",unitMeasure:"kg"},
     ]);
 
-    // icon:<FaWeight className='icon'/>,
+    
     //^input will show on top
     inputValueDate.current.value = "";
     inputValueHeartRate.current.value = "";
