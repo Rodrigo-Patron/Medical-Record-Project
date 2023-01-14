@@ -24,11 +24,13 @@ const Main = () => {
     e.preventDefault();
     setUnits([
       {
+        date:inputValueDate.current.value,
         number: inputValueBp.current.value,
         type: "Blood pressure",
         unitMeasure: "mmHg",
       },
       {
+        
         number: inputValueHeartRate.current.value,
         type: "HeartRate",
         unitMeasure: "Bpm",
@@ -47,7 +49,7 @@ const Main = () => {
         number: inputValueWeight.current.value,
         type: "Weight",
         unitMeasure: "kg",
-      },
+      },...units
     ]);
 
     //^input will show on top
@@ -57,6 +59,8 @@ const Main = () => {
     inputValueOxygen.current.value = "";
     inputValueWeight.current.value = "";
     inputValueSugar.current.value = "";
+
+    alert("Your records are saved")
   };
 
   return (

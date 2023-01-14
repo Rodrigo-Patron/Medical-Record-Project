@@ -20,8 +20,14 @@ const Data = () => {
       {units &&
         units.map((item, i) => (
           <Row className="row" key={i}>
+            
+
+            <Row className="date">
+          {item.date}
+            </Row>
+
             <Col xl="4" className="cols one">
-              {item.icon} {item.type}
+               {item.type}
             </Col>
 
             <Col xl="4" className="cols two">
