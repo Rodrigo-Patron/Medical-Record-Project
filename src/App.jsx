@@ -3,6 +3,7 @@ import "./App.scss";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Main from "./Components/Main/Main";
+import Edit from "./Components/Edit/Edit";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="main">
           <Route index element={<Main />} />
+          <Route path=":type" element={<Edit />} />
         </Route>
       </Routes>
     </div>

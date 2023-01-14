@@ -1,0 +1,40 @@
+.Edit {
+  margin: 3rem auto;
+  width: 30rem;
+  color: rgb(65, 60, 60);
+  border: none;
+  border-radius: 10px;
+  padding: 3rem;
+  background-color: rgba(255, 231, 231, 0.9);
+  label {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  input {
+    margin-bottom: 1.5rem;
+    border: none;
+
+    &::placeholder {
+      color: rgb(65, 60, 60, 0.4);
+    }
+    &:focus {
+      box-shadow: 0 0 1px 3px rgb(252, 207, 215);
+    }
+  }
+  .Btn {
+    text-align: center;
+    button {
+      background-color: rgb(250, 195, 205);
+      color: rgb(65, 60, 60);
+      border: none;
+      margin-right: 1rem;
+      &:active {
+        transform: scale(1.03);
+      }
+      &:hover {
+        color: white;
+        background-color: rgb(65, 60, 60);
+      }
+    }
+  }
+}
