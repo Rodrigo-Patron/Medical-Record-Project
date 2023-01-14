@@ -4,13 +4,14 @@ import { useContext, useRef } from "react";
 import { MedicalContext } from "../../MedicalContext";
 import { Form, FormControl, Container, Row, Button } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
-import { FaHeartbeat } from "react-icons/fa";
-import { FaWeight } from "react-icons/fa";
-import { BsDropletFill } from "react-icons/bs";
-import { SiGoldenline } from "react-icons/si";
 import Logout from "../Logout/Logout";
+import { useState } from "react";
 
 const Main = () => {
+
+   //! Hide and show text
+   const[show, setShow]=useState(true)
+
   const inputValueBp = useRef();
   const inputValueHeartRate = useRef();
   const inputValueSugar = useRef();
@@ -63,6 +64,16 @@ const Main = () => {
     alert("Your records are saved")
   };
 
+  //^ Hide function
+  const hideHandler=()=>{
+    setShow(false)
+  }
+
+  //^ Show function
+  const showHandler=()=>{
+    setShow(true)
+  }
+
   return (
     <div className="Main">
       <Container>
@@ -72,7 +83,7 @@ const Main = () => {
           <Form onSubmit={submitHandler}>
             <label>Select a date</label>
             <br />
-            <FormControl ref={inputValueDate} type="date" required />
+            <FormControl ref={inputValueDate} type="date" className="date-select" required />
             <ListGroup className="input-container">
               <ListGroup.Item variant="danger">
                 <label>Weight</label>
@@ -131,13 +142,14 @@ const Main = () => {
             <Button type="submit" variant="outline-success">
               Save
             </Button>{" "}
-            {/* <Button variant="outline-danger">Delete</Button> */}
+            <Button onClick={showHandler} variant="outline-info">Show</Button>{" "}
+            <Button onClick={hideHandler} variant="outline-danger">Hide</Button>
           </Form>
         </Row>
 
         <Row className="data-wrapper">
-          {/* {units.length<1 && <h4>No records yet</h4>} */}
-          <Data />
+          {units.length<1 && <h4>No records yet</h4>}
+         {show && <Data />}
         </Row>
       </Container>
     </div>
