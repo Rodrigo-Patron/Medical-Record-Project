@@ -1,6 +1,19 @@
 .Data {
   .row {
     font-size: 20px;
+    margin-bottom: 0.3rem;
+    // border: 1px solid;
+    margin-top: 0.3rem;
+
+    .date {
+      margin: auto;
+      font-size: 30px;
+
+      color: black;
+      font-weight: bolder;
+      // background-color: cornsilk;
+      // margin-top: 0.1rem;
+    }
 
     .cols {
       height: 100px;
@@ -31,16 +44,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-
-    .date {
-      width: fit-content;
-      border: 3px solid red;
-      background-color: green;
-      color: white;
-      padding: 0.3rem;
-      border-radius: 0.5rem;
-      margin-left: 0.2rem;
     }
 
     .unit {
