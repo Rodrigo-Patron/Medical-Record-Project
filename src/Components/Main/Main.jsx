@@ -19,7 +19,7 @@ const Main = () => {
   const inputValueWeight = useRef();
   const inputValueDate = useRef();
 
-  const {units,setUnits } = useContext(MedicalContext);
+  const {units,setUnits,user } = useContext(MedicalContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
