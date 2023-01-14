@@ -15,12 +15,6 @@ const Data = () => {
     setUnits(filtArr);
   };
 
-  // &Editing
-
-  const editHandler = () => {
-    console.log("hi");
-  };
-
   return (
     <div className="Data">
       {units &&
@@ -43,10 +37,8 @@ const Data = () => {
               >
                 Delete
               </Button>{" "}
-              <NavLink to={item.number}>
-                <Button onClick={editHandler} variant="outline-success">
-                  Edit
-                </Button>{" "}
+              <NavLink to={item.type}>
+                <Button variant="outline-success">Edit</Button>{" "}
               </NavLink>
             </Col>
           </Row>
