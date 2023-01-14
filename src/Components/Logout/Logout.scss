@@ -1,7 +1,9 @@
 .Logout {
   display: flex;
-  justify-content: end;
-  align-items: end;
+  align-items: flex-end;
+  flex-direction: column;
+  // justify-content: end;
+  // align-items: end;
 
   .logOut {
     background-color: rgb(250, 195, 205);

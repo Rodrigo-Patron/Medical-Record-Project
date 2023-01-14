@@ -1,4 +1,4 @@
-import ListGroup from "react-bootstrap/ListGroup";
+
 import { NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import "./Data.scss";
@@ -37,14 +37,14 @@ const Data = () => {
             </Col>
 
             <Col xl="4" className="cols three">
-              <Button
+              <Button className="button"
                 onClick={() => deleteHandler(item)}
                 variant="outline-danger"
               >
                 Delete
-              </Button>{" "}
+              </Button>{' '}
               <NavLink to={item.type}>
-                <Button variant="outline-success">Edit</Button>{" "}
+                <Button className="button" variant="outline-success">Edit</Button>
               </NavLink>
             </Col>
           </Row>
