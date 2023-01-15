@@ -30,21 +30,23 @@ const Edit = () => {
   };
 
   return (
-    <Form className="Edit">
-      <Form.Label>{findTheEditingUnit.type}</Form.Label>
-      <Form.Control
-        type="number"
-        ref={inputValue}
-        defaultValue={findTheEditingUnit.number}
-        min={0}
-      />
-      <div className="Btn">
-        <Button onClick={confirmHandler}>Confirm</Button>
-        <NavLink to="/main">
-          <Button>Cancel</Button>
-        </NavLink>
-      </div>
-    </Form>
+    <div className="Edit">
+      <Form className="formContainer">
+        <Form.Label>{findTheEditingUnit.type}</Form.Label>
+        <Form.Control
+          type="number"
+          ref={inputValue}
+          defaultValue={findTheEditingUnit.number}
+          min={0}
+        />
+        <div className="Btn">
+          <Button onClick={confirmHandler}>Confirm</Button>
+          <NavLink to="/main">
+            <Button>Cancel</Button>
+          </NavLink>
+        </div>
+      </Form>
+    </div>
   );
 };
 
