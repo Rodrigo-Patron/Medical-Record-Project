@@ -2,16 +2,11 @@ import "./Main.scss";
 import Data from "../Data/Data";
 import { useContext, useRef } from "react";
 import { MedicalContext } from "../../MedicalContext";
-
-
-
-import DataGraph from "../graph/DataGraph";
-import { Form, FormControl, Container, Row, Button, Card } from "react-bootstrap";
+import DataGraph from "../Graph/DataGraph";
+import { Form, FormControl, Container, Row, Button } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import Logout from "../Logout/Logout";
 import { useState } from "react";
-
-
 
 const Main = () => {
   //! Hide and show text
@@ -24,14 +19,7 @@ const Main = () => {
   const inputValueWeight = useRef();
   const inputValueDate = useRef();
 
-
-  
   const { units, setUnits } = useContext(MedicalContext);
-
-
-  
-
-
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -91,7 +79,6 @@ const Main = () => {
       <Container>
         <Logout />
         <Row className="wrapper">
-
           <h3>Please note down your records</h3>
           <Form onSubmit={submitHandler}>
             <label>Select a date</label>
@@ -173,9 +160,9 @@ const Main = () => {
           {units.length < 1 && <h4>No records yet</h4>}
           {show && <Data />}
         </Row>
-      <Row>
-        <DataGraph/>
-      </Row>
+        <Row>
+          <DataGraph />
+        </Row>
       </Container>
     </div>
   );
