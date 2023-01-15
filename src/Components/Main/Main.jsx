@@ -2,11 +2,15 @@ import "./Main.scss";
 import Data from "../Data/Data";
 import { useContext, useRef } from "react";
 import { MedicalContext } from "../../MedicalContext";
+
+
+
 import DataGraph from "../graph/DataGraph";
 import { Form, FormControl, Container, Row, Button, Card } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import Logout from "../Logout/Logout";
 import { useState } from "react";
+
 
 
 const Main = () => {
@@ -21,7 +25,12 @@ const Main = () => {
   const inputValueDate = useRef();
 
 
+  
   const { units, setUnits } = useContext(MedicalContext);
+
+
+  
+
 
 
   const submitHandler = (e) => {
@@ -164,7 +173,9 @@ const Main = () => {
           {units.length < 1 && <h4>No records yet</h4>}
           {show && <Data />}
         </Row>
-
+      <Row>
+        <DataGraph/>
+      </Row>
       </Container>
     </div>
   );

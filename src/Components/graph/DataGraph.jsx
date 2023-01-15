@@ -1,5 +1,5 @@
-
-
+import { MedicalContext } from "../../MedicalContext";
+import { useContext } from "react";
 import React from "react";
 import {
   BarChart,
@@ -11,36 +11,65 @@ import {
   Legend
 } from "recharts";
 
-const data = [
-  {
-    name: "bp",
+// const data = [
+//   {
+//     name: "bp",
+//     Bp:{}
     
-  },
-  {
-    name: "HeartRate",
+//   },
+//   {
+//     name: "HeartRate",
     
-  },
-  {
-    name: "Oxygen",
+//   },
+//   {
+//     name: "Oxygen",
    
-  },
-  {
-    name: "Weight",
+//   },
+//   {
+//     name: "Weight",
     
-  },
-  {
-    name: "steps",
+//   },
+//   {
+//     name: "steps",
    
-  },
+//   },
   
-];
+// ];
 
 const Datagraph =() =>{
+  const { units, setUnits } = useContext(MedicalContext);
+  console.log(units);
+  const data = [
+    {
+      name: "bp",
+      Bp:{units}
+      
+    },
+    {
+      name: "HeartRate",
+      
+    },
+    {
+      name: "Oxygen",
+     
+    },
+    {
+      name: "Weight",
+      
+    },
+    {
+      name: "steps",
+     
+    },
+    
+  ];
+
+  
   return (
     <BarChart
       width={800}
       height={400}
-      data={data}
+      data={units.number}
       margin={{
         top: 5,
         right: 30,

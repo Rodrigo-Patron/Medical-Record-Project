@@ -1,6 +1,5 @@
 import "./Home.scss";
 
-
 import { useContext } from "react";
 import { MedicalContext } from "../../MedicalContext";
 import Register from "../Register/Register";
