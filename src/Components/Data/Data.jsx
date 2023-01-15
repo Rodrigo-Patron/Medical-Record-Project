@@ -1,18 +1,73 @@
+
+import { NavLink } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 import "./Data.scss";
 import { useContext } from "react";
 import { MedicalContext } from "../../MedicalContext";
+import { Col, Row } from "react-bootstrap";
 
 const Data = () => {
-  const { bp,heartRate,sugar,oxygen,weight } = useContext(MedicalContext);
+  const { units, setUnits } = useContext(MedicalContext);
+
+  //& Deleting task function
+  const deleteHandler = (unit) => {
+    const filtArr = units.filter((item) => item.type !== unit.type);
+    setUnits(filtArr);
+  };
 
   return (
     <div className="Data">
-      <h1>Here is the CHARTS and DATA</h1>
-      <div> Blood Pressure: {bp} mmHg</div>
-      <div> Heart Rate: {heartRate} bpm</div>
-      <div> Sugar: {sugar} mM</div>
-      <div> Oxygen: {oxygen} LPM</div>
-      <div> Weight: {weight} Kg</div>
+      {units &&
+        units.map((item, i) => (
+          <Row className="row" key={i}>
+            
+
+            <Row className="date">
+          {item.date}
+            </Row>
+
+            <Col xl="4" className="cols one">
+               {item.type}
+            </Col>
+
+            <Col xl="4" className="cols two">
+              <span className="measure">
+                {item.number} {item.unitMeasure}
+              </span>
+            </Col>
+
+            <Col xl="4" className="cols three">
+              <Button className="button"
+                onClick={() => deleteHandler(item)}
+                variant="outline-danger"
+              >
+                Delete
+              </Button>{' '}
+              <NavLink to={item.type}>
+                <Button className="button" variant="outline-success">Edit</Button>
+              </NavLink>
+            </Col>
+          </Row>
+        ))}
+
+      {/* <ListGroup>
+{units && units.map((item,i) =><ListGroup.Item variant="secondary" key={i}className='listItem'>
+  
+   
+  
+            <div className='unit'>
+              
+              
+                <h4> {item.type}: <span className='numbers'>{item.number} {item.unitMeasure}</span></h4>
+                
+                  <NavLink to={item.type}><Button onClick={editHandler} variant="outline-success">Edit</Button>{' '}</NavLink>
+                  <Button onClick={()=>deleteHandler(item)} variant="outline-danger">Delete</Button>{' '}
+               
+             
+            </div>
+
+            </ListGroup.Item>)}
+        </ListGroup> */}
     </div>
   );
 };

@@ -1,0 +1,67 @@
+.Data {
+  .row {
+    font-size: 20px;
+    margin-bottom: 0.3rem;
+    // border: 1px solid;
+    margin-top: 0.3rem;
+
+    .date {
+      margin: auto;
+      font-size: 28px;
+      color: black;
+      font-weight: bolder;
+    }
+
+    .cols {
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.32rem;
+    }
+
+    .three {
+      .button {
+        width: 100px;
+        margin-right: 0.2rem;
+      }
+    }
+
+    .one,
+    .three {
+      background-color: rgb(243, 237, 237);
+    }
+
+    .two {
+      background-color: #f3c2c7;
+
+      .measure {
+        font-weight: bolder;
+        font-size: 25px;
+      }
+    }
+  }
+
+  .listItem {
+    h3 {
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .unit {
+      display: flex;
+      justify-content: space-evenly;
+
+      .icon {
+        font-size: 40px;
+        margin-right: 1rem;
+      }
+
+      .numbers {
+        font-size: 30px;
+      }
+    }
+  }
+}

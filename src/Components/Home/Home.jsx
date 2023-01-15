@@ -1,34 +1,27 @@
 import "./Home.scss";
-import { Button } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+
+
+import { useContext } from "react";
+import { MedicalContext } from "../../MedicalContext";
+import Register from "../Register/Register";
+import Login from "../Login/Login";
+import { Container, Row } from "react-bootstrap";
 
 const Home = () => {
+  const { setUser, user } = useContext(MedicalContext);
+
   return (
-    <div className="Home">
-      {/* Here goes the background */}
-
-      <h1>My Medical</h1>
-
-      {/* Here goes the Register: Input email, password and button to submit */}
-
-      <form>
-        <input type="email" placeholder="Type Email" />
-        <input type="password" placeholder="Type Password" />
-        <Button variant="dark">Register</Button>
-      </form>
-
-      {/* Here goes the Login : Input email, password and button to submit.. once we click on submit it takes you to another page "MAIN"
-      
-      
-      */}
-      <form>
-        <input type="email" placeholder="Type Email" />
-        <input type="password" placeholder="Type Password" />
-        <NavLink to="main">
-          <Button variant="dark">Log in</Button>
-        </NavLink>
-      </form>
-    </div>
+    <Container className="Home">
+      <Row>
+        <h1>
+          My Medical <br /> Records
+        </h1>
+      </Row>
+      <Row className="rowContainer">
+        <Register />
+        <Login />
+      </Row>
+    </Container>
   );
 };
 
