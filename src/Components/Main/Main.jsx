@@ -2,8 +2,13 @@ import "./Main.scss";
 import Data from "../Data/Data";
 import { useContext, useRef } from "react";
 import { MedicalContext } from "../../MedicalContext";
-import { Form,FormControl,Container,Row,Button } from "react-bootstrap";
+import { Form,FormControl,Container,Row,Button ,Card } from "react-bootstrap";
 import ListGroup from 'react-bootstrap/ListGroup';
+import {HeartPulseFill} from 'react-bootstrap-icons'
+import {BsDropletFill} from 'react-bootstrap-icons'
+import DataGraph from "../graph/DataGraph";
+
+
 
 const Main = () => {
   const inputValueBp = useRef();
@@ -13,14 +18,14 @@ const Main = () => {
   const inputValueWeight = useRef();
 
   const {
-    bp,heartRate,sugar,
-    setHeartRate,
-    setBp,
-    setSugar,
-    oxygen,
-    setOxygen,
-    weight,
-    setWeight,
+      bp,heartRate,sugar,
+      setHeartRate,
+      setBp,
+      setSugar,
+      oxygen,
+      setOxygen,
+      weight,
+      setWeight,
   } = useContext(MedicalContext);
 
   const submitHandler = (e) => {
@@ -114,6 +119,18 @@ const Main = () => {
    <Row className="data-wrapper">
     <Data/>
    </Row>
+  <div className='buttontoGetdata'>
+      
+      <Button variant="success"><HeartPulseFill size='70' color='red'/><h3>Heart Rate</h3></Button>{' '}
+      <Button variant="warning">Blood Presure</Button>{' '}
+      <Button variant="danger">Danger</Button>{' '}
+      <Button variant="info">Info</Button>{' '}
+  </div>
+ <div className="Chart">
+  <DataGraph/>
+  
+ </div>
+
    <Button className="logOut">Log Out</Button>
       </Container>
 
