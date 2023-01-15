@@ -8,9 +8,8 @@ import Logout from "../Logout/Logout";
 import { useState } from "react";
 
 const Main = () => {
-
-   //! Hide and show text
-   const[show, setShow]=useState(true)
+  //! Hide and show text
+  const [show, setShow] = useState(true);
 
   const inputValueBp = useRef();
   const inputValueHeartRate = useRef();
@@ -25,13 +24,12 @@ const Main = () => {
     e.preventDefault();
     setUnits([
       {
-        date:inputValueDate.current.value,
+        date: inputValueDate.current.value,
         number: inputValueBp.current.value,
         type: "Blood pressure",
         unitMeasure: "mmHg",
       },
       {
-        
         number: inputValueHeartRate.current.value,
         type: "HeartRate",
         unitMeasure: "Bpm",
@@ -50,7 +48,8 @@ const Main = () => {
         number: inputValueWeight.current.value,
         type: "Weight",
         unitMeasure: "kg",
-      },...units
+      },
+      ...units,
     ]);
 
     //^input will show on top
@@ -61,29 +60,34 @@ const Main = () => {
     inputValueWeight.current.value = "";
     inputValueSugar.current.value = "";
 
-    alert("Your records are saved")
+    alert("Your records are saved");
   };
 
   //^ Hide function
-  const hideHandler=()=>{
-    setShow(false)
-  }
+  const hideHandler = () => {
+    setShow(false);
+  };
 
   //^ Show function
-  const showHandler=()=>{
-    setShow(true)
-  }
+  const showHandler = () => {
+    setShow(true);
+  };
 
   return (
     <div className="Main">
       <Container>
         <Logout />
         <Row className="wrapper">
-          <h3>Hallo....Please note down your records!</h3>
+          <h3>Please note down your records</h3>
           <Form onSubmit={submitHandler}>
             <label>Select a date</label>
             <br />
-            <FormControl ref={inputValueDate} type="date" className="date-select" required />
+            <FormControl
+              ref={inputValueDate}
+              type="date"
+              className="date-select"
+              required
+            />
             <ListGroup className="input-container">
               <ListGroup.Item variant="danger">
                 <label>Weight</label>
@@ -142,14 +146,18 @@ const Main = () => {
             <Button type="submit" variant="outline-success">
               Save
             </Button>{" "}
-            <Button onClick={showHandler} variant="outline-info">Show</Button>{" "}
-            <Button onClick={hideHandler} variant="outline-danger">Hide</Button>
+            <Button onClick={showHandler} variant="outline-info">
+              Show
+            </Button>{" "}
+            <Button onClick={hideHandler} variant="outline-danger">
+              Hide
+            </Button>
           </Form>
         </Row>
 
         <Row className="data-wrapper">
-          {units.length<1 && <h4>No records yet</h4>}
-         {show && <Data />}
+          {units.length < 1 && <h4>No records yet</h4>}
+          {show && <Data />}
         </Row>
       </Container>
     </div>

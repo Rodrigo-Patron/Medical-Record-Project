@@ -12,7 +12,9 @@ const Home = () => {
   return (
     <Container className="Home">
       <Row>
-        <h1>My Medical <br/> Records</h1>
+        <h1>
+          My Medical <br /> Records
+        </h1>
       </Row>
       <Row className="rowContainer">
         <Register />
