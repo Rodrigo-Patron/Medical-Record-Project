@@ -11,6 +11,7 @@ import { useState } from "react";
 const Main = () => {
   //! Hide and show text
   const [show, setShow] = useState(true);
+  
 
   const inputValueBp = useRef();
   const inputValueHeartRate = useRef();
@@ -23,29 +24,36 @@ const Main = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    
     setUnits([
-      {
-        date: inputValueDate.current.value,
+
+       {
+        
+        date:inputValueDate.current.value,
         number: inputValueBp.current.value,
         type: "Blood pressure",
         unitMeasure: "mmHg",
       },
       {
+        
         number: inputValueHeartRate.current.value,
         type: "HeartRate",
         unitMeasure: "Bpm",
       },
       {
+       
         number: inputValueSugar.current.value,
         type: "sugar",
         unitMeasure: "mmol/L",
       },
       {
+      
         number: inputValueOxygen.current.value,
         type: "oxygen",
         unitMeasure: "mgL",
       },
       {
+        
         number: inputValueWeight.current.value,
         type: "Weight",
         unitMeasure: "kg",
@@ -158,6 +166,7 @@ const Main = () => {
 
         <Row className="data-wrapper">
           {units.length < 1 && <h4>No records yet</h4>}
+          {units.length > 1 && <h4>My Records</h4>}
           {show && <Data />}
         </Row>
         <Row>

@@ -10,17 +10,19 @@ const Data = () => {
 
   //& Deleting task function
   const deleteHandler = (unit) => {
-    const filtArr = units.filter((item) => item.type !== unit.type);
+    const filtArr = units.filter((item) => item.number !== unit.number);
     setUnits(filtArr);
   };
 
   return (
     <div className="Data">
+      
       {units &&
         units.map((item, i) => (
           <Row className="row" key={i}>
-            <Row className="date">{item.date}</Row>
-
+            
+<Row className="date">{item.date}</Row>
+           
             <Col xl="4" className="cols one">
               {item.type}
             </Col>
