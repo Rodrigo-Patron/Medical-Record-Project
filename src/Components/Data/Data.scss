@@ -13,7 +13,7 @@
     }
 
     .cols {
-      height: 100px;
+      height: 80px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -24,6 +24,17 @@
       .button {
         width: 100px;
         margin-right: 0.2rem;
+        // background-color: rgb(214, 214, 214);
+        border: 3px solid rgb(250, 195, 205);
+        color: black;
+        &:active {
+          transform: scale(1.03);
+        }
+        &:hover {
+          border: 3px solid rgb(65, 60, 60);
+          color: white;
+          background-color: rgb(65, 60, 60);
+        }
       }
     }
 
