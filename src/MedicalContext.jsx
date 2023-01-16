@@ -1,16 +1,17 @@
 import { createContext, useState, useEffect } from "react";
 
 export const MedicalContext = createContext(null);
+const registeredUser = localStorage.getItem("registeredUser")? JSON.parse(localStorage.getItem("registeredUser")): []
+// const defaultUnits = JSON.parse(localStorage.getItem("allUnits")) || [];
+const defaultUnits = localStorage.getItem("allUnits")?JSON.parse(localStorage.getItem("allUnits")):[]
 
-const registeredUser = JSON.parse(localStorage.getItem("registeredUser")) || [];
-const defaultUnits = JSON.parse(localStorage.getItem("allUnits")) || [];
+
 
 export const MedicalContextProvider = ({ children }) => {
   // UNITS
   const [units, setUnits] = useState(defaultUnits);
   // REGISTER
   const [user, setUser] = useState(registeredUser);
-
   // UNITS-LOCALSTORAGE
   useEffect(() => {
     localStorage.setItem("allUnits", JSON.stringify(units));

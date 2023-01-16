@@ -63,9 +63,9 @@ console.log("Units ===>",units)
       // let ob = units.map(u=> ({name: u.type, number: u.number}))
       // change data state in component
       setData(units.map(u=> ({"name": u.type, [u.type]: u.number})))
-//       setTimeout(()=>{
-// console.log("data===>", data)
-//       }, 1000)
+      setTimeout(()=>{
+console.log("data===>", data)
+      }, 500)
       
       // setData([
       //    {name: 'HeartRate', HeartRate: units.find(item => item.type === "HeartRate")?units.find(item => item.type === "HeartRate").number:0},
@@ -101,9 +101,9 @@ console.log("Units ===>",units)
       <Legend />
       <Bar dataKey="Blood pressure" fill="#8884d8" />
        <Bar dataKey="HeartRate" fill="#FF0000" />
-      <Bar dataKey="oxygen" fill="#FFA500" />
+      <Bar dataKey="Oxygen" fill="#FFA500" />
       <Bar dataKey="Weight" fill="#FFC0CB" />
-      <Bar dataKey="sugar" fill="#82ca9d" /> 
+      <Bar dataKey="Sugar" fill="#82ca9d" /> 
     </BarChart>
     </ResponsiveContainer>
   }
