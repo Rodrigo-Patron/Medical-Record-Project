@@ -1,17 +1,18 @@
 import "./Main.scss";
 import Data from "../Data/Data";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { MedicalContext } from "../../MedicalContext";
 import DataGraph from "../Graph/DataGraph";
 import { Form, FormControl, Container, Row, Button } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import Logout from "../Logout/Logout";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
   //! Hide and show text
   const [show, setShow] = useState(true);
-
+  const navigate = useNavigate();
   const inputValueBp = useRef();
   const inputValueHeartRate = useRef();
   const inputValueSugar = useRef();
@@ -19,7 +20,8 @@ const Main = () => {
   const inputValueWeight = useRef();
   const inputValueDate = useRef();
 
-  const { units, setUnits } = useContext(MedicalContext);
+  const { units, setUnits, currentUser } = useContext(MedicalContext);
+  const { user } = useContext(MedicalContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -74,6 +76,13 @@ const Main = () => {
   const showHandler = () => {
     setShow(true);
   };
+
+  useEffect(() => {
+    if (Object.keys(currentUser).length === 0) {
+      console.log(currentUser);
+      navigate("/");
+    }
+  }, [currentUser]);
 
   return (
     <div className="Main">
@@ -171,3 +180,21 @@ const Main = () => {
 };
 
 export default Main;
+
+// try to store the data like this
+
+// const data = [
+//   {
+//     userId: 1,
+//     records: [
+//       { recordId: 0 ,number: "543", type: "HeartRate", unitMeasure: "Bpm" },
+//       { recordId: 1 ,number: "6534", type: "Oxygen", unitMeasure: "mgL" },
+//     ],
+//   },{
+//     userId: 2,
+//     records: [
+//       { recordId: 0 , number: "543", type: "HeartRate", unitMeasure: "Bpm" },
+//       { recordId: 1 , number: "6534", type: "Oxygen", unitMeasure: "mgL" },
+//     ],
+//   }
+// ];
