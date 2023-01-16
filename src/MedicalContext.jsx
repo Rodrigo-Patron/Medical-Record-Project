@@ -1,12 +1,17 @@
 import { createContext, useState, useEffect } from "react";
 
 export const MedicalContext = createContext(null);
-const registeredUser = localStorage.getItem("registeredUser")? JSON.parse(localStorage.getItem("registeredUser")): []
-// const defaultUnits = JSON.parse(localStorage.getItem("allUnits")) || [];
-const defaultUnits = localStorage.getItem("allUnits")?JSON.parse(localStorage.getItem("allUnits")):[]
-// currentUser
-const actualUser = localStorage.getItem("currentUser")? JSON.parse(localStorage.getItem("currentUser")):{}
+const registeredUser = localStorage.getItem("registeredUser")
+  ? JSON.parse(localStorage.getItem("registeredUser"))
+  : [];
 
+const defaultUnits = localStorage.getItem("allUnits")
+  ? JSON.parse(localStorage.getItem("allUnits"))
+  : [];
+// currentUser
+const actualUser = localStorage.getItem("currentUser")
+  ? JSON.parse(localStorage.getItem("currentUser"))
+  : {};
 
 export const MedicalContextProvider = ({ children }) => {
   // UNITS
@@ -14,17 +19,19 @@ export const MedicalContextProvider = ({ children }) => {
   // REGISTER
   const [user, setUser] = useState(registeredUser);
 
-  //currentUser
-  const [currentUser, setCurrentUserState] = useState(actualUser) 
+  //CURRENTUSER
+  const [currentUser, setCurrentUserState] = useState(actualUser);
+
   // UNITS-LOCALSTORAGE
-  const setCurrentUser = user=>{
-    setCurrentUserState(user)
+  const setCurrentUser = (user) => {
+    setCurrentUserState(user);
+
     // store it in db (local storage)
-    localStorage.setItem("currentUser",JSON.stringify(user))
-  }
+    localStorage.setItem("currentUser", JSON.stringify(user));
+  };
   useEffect(() => {
     localStorage.setItem("allUnits", JSON.stringify(units));
-    localStorage.setItem("currentUser", JSON.stringify(actualUser))
+    // localStorage.setItem("currentUser", JSON.stringify(actualUser));
   }, [units]);
 
   // REGISTER - LOCAL STORAGE
@@ -34,7 +41,9 @@ export const MedicalContextProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <MedicalContext.Provider value={{ units, setUnits, user, setUser, currentUser, setCurrentUser }}>
+    <MedicalContext.Provider
+      value={{ units, setUnits, user, setUser, currentUser, setCurrentUser }}
+    >
       {children}
     </MedicalContext.Provider>
   );

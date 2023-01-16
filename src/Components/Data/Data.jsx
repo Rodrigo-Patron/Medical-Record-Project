@@ -10,7 +10,7 @@ const Data = () => {
 
   //& Deleting task function
   const deleteHandler = (unit) => {
-    const filtArr = units.filter((item) => item.number !== unit.number && item.type === unit.type);
+    const filtArr = units.filter((item) => item.recordId !== unit.recordId);
     setUnits(filtArr);
   };
 
