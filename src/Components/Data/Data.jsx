@@ -1,4 +1,3 @@
-
 import { NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import "./Data.scss";
@@ -20,14 +19,10 @@ const Data = () => {
       {units &&
         units.map((item, i) => (
           <Row className="row" key={i}>
-            
-
-            <Row className="date">
-          {item.date}
-            </Row>
+            <Row className="date">{item.date}</Row>
 
             <Col xl="4" className="cols one">
-               {item.type}
+              {item.type}
             </Col>
 
             <Col xl="4" className="cols two">
@@ -37,37 +32,21 @@ const Data = () => {
             </Col>
 
             <Col xl="4" className="cols three">
-              <Button className="button"
+              <Button
+                className="button"
                 onClick={() => deleteHandler(item)}
                 variant="outline-danger"
               >
                 Delete
-              </Button>{' '}
+              </Button>{" "}
               <NavLink to={item.type}>
-                <Button className="button" variant="outline-success">Edit</Button>
+                <Button className="button" variant="outline-success">
+                  Edit
+                </Button>
               </NavLink>
             </Col>
           </Row>
         ))}
-
-      {/* <ListGroup>
-{units && units.map((item,i) =><ListGroup.Item variant="secondary" key={i}className='listItem'>
-  
-   
-  
-            <div className='unit'>
-              
-              
-                <h4> {item.type}: <span className='numbers'>{item.number} {item.unitMeasure}</span></h4>
-                
-                  <NavLink to={item.type}><Button onClick={editHandler} variant="outline-success">Edit</Button>{' '}</NavLink>
-                  <Button onClick={()=>deleteHandler(item)} variant="outline-danger">Delete</Button>{' '}
-               
-             
-            </div>
-
-            </ListGroup.Item>)}
-        </ListGroup> */}
     </div>
   );
 };
