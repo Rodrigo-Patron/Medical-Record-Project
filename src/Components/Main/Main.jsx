@@ -21,46 +21,103 @@ const Main = () => {
   const inputValueDate = useRef();
 
   const { units, setUnits, currentUser } = useContext(MedicalContext);
-  const { user } = useContext(MedicalContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
 
+    // setUnits([
+    //   {
+    //     date: inputValueDate.current.value,
+    //     number: inputValueBp.current.value,
+    //     type: "Blood pressure",
+    //     unitMeasure: "mmHg",
+    //   },
+    //   {
+    //     number: inputValueHeartRate.current.value,
+    //     type: "HeartRate",
+    //     unitMeasure: "Bpm",
+    //   },
+    //   {
+    //     number: inputValueSugar.current.value,
+    //     type: "Sugar",
+    //     unitMeasure: "mmol/L",
+    //   },
+    //   {
+    //     number: inputValueOxygen.current.value,
+    //     type: "Oxygen",
+    //     unitMeasure: "mgL",
+    //   },
+    //   {
+    //     number: inputValueWeight.current.value,
+    //     type: "Weight",
+    //     unitMeasure: "kg",
+    //   },
+    //   ...units,
+    // ]);
+
     setUnits([
       {
-        date: inputValueDate.current.value,
-        number: inputValueBp.current.value,
-        type: "Blood pressure",
-        unitMeasure: "mmHg",
+        userId: currentUser.userId,
       },
       {
+        date: inputValueDate.current.value,
+        recordId: 0,
         number: inputValueHeartRate.current.value,
         type: "HeartRate",
         unitMeasure: "Bpm",
       },
       {
-        number: inputValueSugar.current.value,
-        type: "Sugar",
-        unitMeasure: "mmol/L",
-      },
-      {
+        recordId: 1,
         number: inputValueOxygen.current.value,
         type: "Oxygen",
         unitMeasure: "mgL",
       },
       {
+        recordId: 2,
+        number: inputValueBp.current.value,
+        type: "Blood pressure",
+        unitMeasure: "mmHg",
+      },
+      {
+        recordId: 3,
+        number: inputValueSugar.current.value,
+        type: "Sugar",
+        unitMeasure: "mmol/L",
+      },
+      {
+        recordId: 4,
         number: inputValueWeight.current.value,
         type: "Weight",
         unitMeasure: "kg",
       },
+
       ...units,
     ]);
+
+    // try to store the data like this
+
+    // const data = [
+    // {
+    // userId: 1,
+    // records: [
+    // { recordId: 0 ,number: "543", type: "HeartRate", unitMeasure: "Bpm" },
+    // { recordId: 1 ,number: "6534", type: "Oxygen", unitMeasure: "mgL" },
+    // ],
+    // },{
+    // userId: 2,
+    // records: [
+    // { recordId: 0 , number: "543", type: "HeartRate", unitMeasure: "Bpm" },
+    // { recordId: 1 , number: "6534", type: "Oxygen", unitMeasure: "mgL" },
+    // ],
+    // }
+    // ];
 
     //^input will show on top
     inputValueDate.current.value = "";
     inputValueHeartRate.current.value = "";
     inputValueBp.current.value = "";
     inputValueOxygen.current.value = "";
+    //
     inputValueWeight.current.value = "";
     inputValueSugar.current.value = "";
 
@@ -170,9 +227,7 @@ const Main = () => {
           {units.length < 1 && <h4>No records yet</h4>}
           {units.length > 1 && <h4>My Records</h4>}
           {show && <Data />}
-        </Row>
-        <Row>
-          <DataGraph />
+          {show && <DataGraph />}
         </Row>
       </Container>
     </div>
@@ -180,21 +235,3 @@ const Main = () => {
 };
 
 export default Main;
-
-// try to store the data like this
-
-// const data = [
-//   {
-//     userId: 1,
-//     records: [
-//       { recordId: 0 ,number: "543", type: "HeartRate", unitMeasure: "Bpm" },
-//       { recordId: 1 ,number: "6534", type: "Oxygen", unitMeasure: "mgL" },
-//     ],
-//   },{
-//     userId: 2,
-//     records: [
-//       { recordId: 0 , number: "543", type: "HeartRate", unitMeasure: "Bpm" },
-//       { recordId: 1 , number: "6534", type: "Oxygen", unitMeasure: "mgL" },
-//     ],
-//   }
-// ];

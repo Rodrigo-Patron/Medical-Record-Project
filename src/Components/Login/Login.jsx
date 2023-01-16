@@ -14,10 +14,14 @@ const Login = () => {
 
   const submitLoginForm = (e) => {
     e.preventDefault();
-    const us = user.find(u=> u.email === inputLoginEmail.current.value && u.password === inputLoginPassword.current.value)
+    const us = user.find(
+      (u) =>
+        u.email === inputLoginEmail.current.value &&
+        u.password === inputLoginPassword.current.value
+    );
     if (us) {
       // set current user in local storage
-      setCurrentUser(us)
+      setCurrentUser(us);
       navigate("/main");
     } else {
       alert("You are not registered or your Email or Password is wrong");
