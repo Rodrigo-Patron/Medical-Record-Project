@@ -22,6 +22,17 @@
 
     Button {
       margin-top: 0.6rem;
+      // background-color: rgb(250, 195, 205);
+      background-color: rgb(221, 219, 219);
+      color: rgb(65, 60, 60);
+      border: none;
+      &:active {
+        transform: scale(1.03);
+      }
+      &:hover {
+        color: white;
+        background-color: rgb(65, 60, 60);
+      }
     }
 
     .input-container {
