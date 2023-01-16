@@ -20,6 +20,7 @@ const Register = () => {
 
     setUser([
       {
+        userId: user.length,
         name: inputName.current.value,
         email: inputEmail.current.value,
         password: inputPassword.current.value,
