@@ -2,7 +2,7 @@ import "./Main.scss";
 import Data from "../Data/Data";
 import { useContext, useRef } from "react";
 import { MedicalContext } from "../../MedicalContext";
-import DataGraph from "../graph/DataGraph";
+import DataGraph from "../Graph/DataGraph";
 import { Form, FormControl, Container, Row, Button } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import Logout from "../Logout/Logout";
