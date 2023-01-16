@@ -6,7 +6,7 @@ import { MedicalContext } from "../../MedicalContext";
 
 
 import DataGraph from "../graph/DataGraph";
-import { Form, FormControl, Container, Row, Button, Card } from "react-bootstrap";
+import { Form, FormControl, Container, Row, Button} from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import Logout from "../Logout/Logout";
 import { useState } from "react";
@@ -25,11 +25,11 @@ const Main = () => {
   const inputValueDate = useRef();
 
 
-  
+
   const { units, setUnits } = useContext(MedicalContext);
 
 
-  
+
 
 
 
@@ -174,7 +174,7 @@ const Main = () => {
           {show && <Data />}
         </Row>
       <Row>
-        <DataGraph/>
+        <DataGraph/> 
       </Row>
       </Container>
     </div>
