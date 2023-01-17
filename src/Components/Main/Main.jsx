@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import { v4 as uuidv4 } from "uuid";
 
 const Main = () => {
   //! Hide and show text
@@ -22,104 +23,77 @@ const Main = () => {
   const inputValueWeight = useRef();
   const inputValueDate = useRef();
 
-  const { units, setUnits, currentUser } = useContext(MedicalContext);
+  const {
+    units,
+    setUnits,
+    currentUser,
+    user,
+    setUser,
+    setCurrentUserV2,
+    setCurrentUser,
+  } = useContext(MedicalContext);
 
+  console.log(user);
   const submitHandler = (e) => {
     e.preventDefault();
+    const findUser = user.find(
+      (theOne) => theOne.userId === currentUser.userId
+    );
 
-    // setUnits([
-    //   {
-    //     date: inputValueDate.current.value,
-    //     number: inputValueBp.current.value,
-    //     type: "Blood pressure",
-    //     unitMeasure: "mmHg",
-    //   },
-    //   {
-    //     number: inputValueHeartRate.current.value,
-    //     type: "HeartRate",
-    //     unitMeasure: "Bpm",
-    //   },
-    //   {
-    //     number: inputValueSugar.current.value,
-    //     type: "Sugar",
-    //     unitMeasure: "mmol/L",
-    //   },
-    //   {
-    //     number: inputValueOxygen.current.value,
-    //     type: "Oxygen",
-    //     unitMeasure: "mgL",
-    //   },
-    //   {
-    //     number: inputValueWeight.current.value,
-    //     type: "Weight",
-    //     unitMeasure: "kg",
-    //   },
-    //   ...units,
-    // ]);
-
-    setUnits([
+    console.log("find user:", findUser);
+    const check = findUser.units || [];
+    findUser.units = [
       {
         userId: currentUser.userId,
       },
       {
         date: inputValueDate.current.value,
-        recordId: 0,
+        recordId: uuidv4(),
         number: inputValueHeartRate.current.value,
         type: "HeartRate",
         unitMeasure: "Bpm",
       },
       {
-        recordId: 1,
+        recordId: uuidv4(),
         number: inputValueOxygen.current.value,
         type: "Oxygen",
         unitMeasure: "mgL",
       },
       {
-        recordId: 2,
+        recordId: uuidv4(),
         number: inputValueBp.current.value,
         type: "Blood pressure",
         unitMeasure: "mmHg",
       },
       {
-        recordId: 3,
+        recordId: uuidv4(),
         number: inputValueSugar.current.value,
         type: "Sugar",
         unitMeasure: "mmol/L",
       },
       {
-        recordId: 4,
+        recordId: uuidv4(),
         number: inputValueWeight.current.value,
         type: "Weight",
         unitMeasure: "kg",
       },
+      ...check,
+    ];
+    console.log(findUser);
 
-      ...units,
-    ]);
+    const updatedCurrentUser = user.filter(
+      (item) => item.userId !== currentUser.userId
+    );
 
-    // try to store the data like this
+    updatedCurrentUser.push(findUser);
 
-    // const data = [
-    // {
-    // userId: 1,
-    // records: [
-    // { recordId: 0 ,number: "543", type: "HeartRate", unitMeasure: "Bpm" },
-    // { recordId: 1 ,number: "6534", type: "Oxygen", unitMeasure: "mgL" },
-    // ],
-    // },{
-    // userId: 2,
-    // records: [
-    // { recordId: 0 , number: "543", type: "HeartRate", unitMeasure: "Bpm" },
-    // { recordId: 1 , number: "6534", type: "Oxygen", unitMeasure: "mgL" },
-    // ],
-    // }
-    // ];
+    setUser(updatedCurrentUser);
+    setCurrentUserV2(findUser);
 
-    //^input will show on top
     inputValueDate.current.value = "";
     inputValueHeartRate.current.value = "";
     inputValueBp.current.value = "";
     inputValueOxygen.current.value = "";
-    //
     inputValueWeight.current.value = "";
     inputValueSugar.current.value = "";
 
@@ -145,9 +119,8 @@ const Main = () => {
 
   return (
     <div className="Main">
-      <Header/>
+      <Header />
       <Container>
-        
         <Logout />
         <Row className="wrapper">
           <h3>Please note down your records</h3>
@@ -234,7 +207,7 @@ const Main = () => {
           {show && <DataGraph />}
         </Row>
       </Container>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

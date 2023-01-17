@@ -6,18 +6,27 @@ import { MedicalContext } from "../../MedicalContext";
 import { Col, Row } from "react-bootstrap";
 
 const Data = () => {
-  const { units, setUnits } = useContext(MedicalContext);
+  const { units, setUnits, currentUser, setCurrentUserV2, setCurrentUser } =
+    useContext(MedicalContext);
+  console.log(currentUser);
 
   //& Deleting task function
   const deleteHandler = (unit) => {
-    const filtArr = units.filter((item) => item.recordId !== unit.recordId);
-    setUnits(filtArr);
+    const filteredUnits = currentUser.units.filter(
+      (item) => item.recordId !== unit.recordId
+    );
+    currentUser.units = filteredUnits;
+    const updatedCurrentUser = currentUser;
+    console.log(filteredUnits);
+
+    setCurrentUserV2({ ...currentUser, units: filteredUnits });
+    localStorage.setItem("currentUser", JSON.stringify(updatedCurrentUser));
   };
 
   return (
     <div className="Data">
-      {units &&
-        units.map((item, i) => (
+      {currentUser.units &&
+        currentUser.units.map((item, i) => (
           <Row className="row" key={i}>
             <Row className="date">{item.date}</Row>
 

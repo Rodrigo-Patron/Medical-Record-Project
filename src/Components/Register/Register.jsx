@@ -2,9 +2,12 @@ import { Button, Form } from "react-bootstrap";
 import "./Register.scss";
 import { useRef, useContext } from "react";
 import { MedicalContext } from "../../MedicalContext";
+import { v4 as uuidv4 } from "uuid";
 
 const Register = () => {
   const { setUser, user } = useContext(MedicalContext);
+
+  const id = uuidv4();
 
   console.log(user);
   const inputName = useRef(null);
@@ -20,7 +23,7 @@ const Register = () => {
 
     setUser([
       {
-        userId: user.length,
+        userId: id,
         name: inputName.current.value,
         email: inputEmail.current.value,
         password: inputPassword.current.value,
