@@ -20,11 +20,11 @@ export const MedicalContextProvider = ({ children }) => {
   const [user, setUser] = useState(registeredUser);
 
   //CURRENTUSER
-  const [currentUser, setCurrentUserState] = useState(actualUser);
+  const [currentUser, setCurrentUserV2] = useState(actualUser);
 
   // UNITS-LOCALSTORAGE
   const setCurrentUser = (user) => {
-    setCurrentUserState(user);
+    setCurrentUserV2(user);
 
     // store it in db (local storage)
     localStorage.setItem("currentUser", JSON.stringify(user));
@@ -34,15 +34,28 @@ export const MedicalContextProvider = ({ children }) => {
     // localStorage.setItem("currentUser", JSON.stringify(actualUser));
   }, [units]);
 
+  // useEffect(() => {
+  //   localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  // }, [currentUser]);
+
   // REGISTER - LOCAL STORAGE
 
   useEffect(() => {
     localStorage.setItem("registeredUser", JSON.stringify(user));
-  }, [user]);
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  }, [user, currentUser]);
 
   return (
     <MedicalContext.Provider
-      value={{ units, setUnits, user, setUser, currentUser, setCurrentUser }}
+      value={{
+        units,
+        setUnits,
+        user,
+        setUser,
+        currentUser,
+        setCurrentUser,
+        setCurrentUserV2,
+      }}
     >
       {children}
     </MedicalContext.Provider>
