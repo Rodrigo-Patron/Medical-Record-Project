@@ -8,6 +8,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Logout from "../Logout/Logout";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const Main = () => {
   //! Hide and show text
@@ -143,7 +145,9 @@ const Main = () => {
 
   return (
     <div className="Main">
+      <Header/>
       <Container>
+        
         <Logout />
         <Row className="wrapper">
           <h3>Please note down your records</h3>
@@ -230,6 +234,7 @@ const Main = () => {
           {show && <DataGraph />}
         </Row>
       </Container>
+      <Footer/>
     </div>
   );
 };
