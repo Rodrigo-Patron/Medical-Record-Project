@@ -74,6 +74,7 @@ const DataGraph = () => {
 
   return (
     <>
+    <h1>Graph</h1>
       {units.length && (
         <ResponsiveContainer width="100%" aspect={3}>
           <BarChart
