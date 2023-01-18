@@ -1,7 +1,7 @@
 .Main {
   min-height: 100vh;
 
-  background: linear-gradient(45deg, #5e2424cd, #1a0d0d41, #a74b4b, #0000006d);
+  // background: linear-gradient(45deg, #5e2424cd, #1a0d0d41, #a74b4b, #0000006d);
   .wrapper {
     h3 {
       text-align: center;
@@ -43,6 +43,9 @@
 
   .logOut {
     width: 100px;
-    margin-top: 2rem;
+  }
+  .data-wrapper {
+    justify-content: center;
+    align-items: center;
   }
 }

@@ -48,7 +48,7 @@ const Data = () => {
               >
                 Delete
               </Button>{" "}
-              <NavLink to={item.type}>
+              <NavLink to={item.recordId}>
                 <Button className="button" variant="outline-success">
                   Edit
                 </Button>

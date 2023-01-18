@@ -9,17 +9,12 @@ const Register = () => {
 
   const id = uuidv4();
 
-  console.log(user);
   const inputName = useRef(null);
   const inputEmail = useRef(null);
   const inputPassword = useRef(null);
 
   const submitRegisterForm = (e) => {
     e.preventDefault();
-
-    // console.log(inputName.current.value);
-    // console.log(inputEmail.current.value);
-    // console.log(inputPassword.current.value);
 
     setUser([
       {

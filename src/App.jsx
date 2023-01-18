@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="main">
           <Route index element={<Main />} />
-          <Route path=":type" element={<Edit />} />
+          <Route path=":recordId" element={<Edit />} />
         </Route>
       </Routes>
     </div>
