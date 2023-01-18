@@ -2,9 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
-  padding: 0 1rem;
-
+  width: 100%;
+  height: fit-content;
+  padding: 0.5rem 2rem;
   div img {
     height: 60px;
     width: 60px;

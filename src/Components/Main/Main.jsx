@@ -5,7 +5,6 @@ import { MedicalContext } from "../../MedicalContext";
 import DataGraph from "../Graph/DataGraph";
 import { Form, FormControl, Container, Row, Button } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
-import Logout from "../Logout/Logout";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
@@ -15,7 +14,9 @@ import { v4 as uuidv4 } from "uuid";
 const Main = () => {
   //! Hide and show text
   const [show, setShow] = useState(true);
+
   const navigate = useNavigate();
+
   const inputValueBp = useRef();
   const inputValueHeartRate = useRef();
   const inputValueSugar = useRef();
@@ -33,19 +34,17 @@ const Main = () => {
     setCurrentUser,
   } = useContext(MedicalContext);
 
-  console.log(user);
   const submitHandler = (e) => {
     e.preventDefault();
     const findUser = user.find(
       (theOne) => theOne.userId === currentUser.userId
     );
 
-    console.log("find user:", findUser);
     const check = findUser.units || [];
     findUser.units = [
-      {
-        userId: currentUser.userId,
-      },
+      // {
+      //   userId: currentUser.userId,
+      // },
       {
         date: inputValueDate.current.value,
         recordId: uuidv4(),
@@ -120,10 +119,11 @@ const Main = () => {
   return (
     <div className="Main">
       <Header />
+
       <Container>
-        <Logout />
+        {/* <Logout /> */}
         <Row className="wrapper">
-          <h3>Please note down your records</h3>
+          <h3>Hello {currentUser.name}, please note down your records</h3>
           <Form onSubmit={submitHandler}>
             <label>Select a date</label>
             <br />
@@ -204,7 +204,7 @@ const Main = () => {
           {units.length < 1 && <h4>No records yet</h4>}
           {units.length > 1 && <h4>My Records</h4>}
           {show && <Data />}
-          {show && <DataGraph />}
+          {/* {show && <DataGraph />} */}
         </Row>
       </Container>
       <Footer />

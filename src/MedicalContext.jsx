@@ -8,7 +8,9 @@ const registeredUser = localStorage.getItem("registeredUser")
 const defaultUnits = localStorage.getItem("allUnits")
   ? JSON.parse(localStorage.getItem("allUnits"))
   : [];
-// currentUser
+
+// CURRENT USER
+
 const actualUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))
   : {};
@@ -19,16 +21,18 @@ export const MedicalContextProvider = ({ children }) => {
   // REGISTER
   const [user, setUser] = useState(registeredUser);
 
-  //CURRENTUSER
+  //CURRENT USER
   const [currentUser, setCurrentUserV2] = useState(actualUser);
 
   // UNITS-LOCALSTORAGE
+
   const setCurrentUser = (user) => {
     setCurrentUserV2(user);
 
     // store it in db (local storage)
     localStorage.setItem("currentUser", JSON.stringify(user));
   };
+
   useEffect(() => {
     localStorage.setItem("allUnits", JSON.stringify(units));
     // localStorage.setItem("currentUser", JSON.stringify(actualUser));
