@@ -29,7 +29,7 @@ const Edit = () => {
 
       // WE NEED TO UPDATE THE CURRENT USER INPUT
       setCurrentUserV2(editedUnits);
-      // setUser(editedUnits);
+
       navigate("/main");
     }
   };

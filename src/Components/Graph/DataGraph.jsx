@@ -14,25 +14,22 @@ import {
 } from "recharts";
 
 const DataGraph = () => {
-  const { units, currentUser } = useContext(MedicalContext);
+  const { currentUser } = useContext(MedicalContext);
 
   const [data, setData] = useState([]);
 
   // when component mounted
   useEffect(() => {
-    if (currentUser.units.length > 0) {
-      // let ob = units.map(u=> ({name: u.type, number: u.number}))
-      // change data state in component
+    if (currentUser.units || 0) {
       setData(
         currentUser.units.map((u) => ({ name: u.type, [u.type]: u.number }))
       );
     }
-  }, [currentUser]); // each time untits changed
+  }, [currentUser]); // each time units changed
 
   return (
     <div className="Graph">
-      <h1>Graph</h1>
-      {currentUser.units.length && (
+      {currentUser.units ? (
         <ResponsiveContainer width="85%" aspect={3}>
           <BarChart
             width={800}
@@ -57,7 +54,7 @@ const DataGraph = () => {
             <Bar dataKey="Sugar" fill="#82ca9d" />
           </BarChart>
         </ResponsiveContainer>
-      )}
+      ) : null}
     </div>
   );
 };
