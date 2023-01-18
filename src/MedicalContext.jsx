@@ -38,10 +38,6 @@ export const MedicalContextProvider = ({ children }) => {
     // localStorage.setItem("currentUser", JSON.stringify(actualUser));
   }, [units]);
 
-  // useEffect(() => {
-  //   localStorage.setItem("currentUser", JSON.stringify(currentUser));
-  // }, [currentUser]);
-
   // REGISTER - LOCAL STORAGE
 
   useEffect(() => {

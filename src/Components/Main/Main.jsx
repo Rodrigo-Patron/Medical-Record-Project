@@ -24,15 +24,8 @@ const Main = () => {
   const inputValueWeight = useRef();
   const inputValueDate = useRef();
 
-  const {
-    units,
-    setUnits,
-    currentUser,
-    user,
-    setUser,
-    setCurrentUserV2,
-    setCurrentUser,
-  } = useContext(MedicalContext);
+  const { currentUser, user, setUser, setCurrentUserV2 } =
+    useContext(MedicalContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -111,7 +104,7 @@ const Main = () => {
 
   useEffect(() => {
     if (Object.keys(currentUser).length === 0) {
-      console.log(currentUser);
+      // console.log(currentUser);
       navigate("/");
     }
   }, [currentUser]);
@@ -201,10 +194,10 @@ const Main = () => {
         </Row>
 
         <Row className="data-wrapper">
-          {units.length < 1 && <h4>No records yet</h4>}
-          {units.length > 1 && <h4>My Records</h4>}
+          {!currentUser.units && <h4>No records yet</h4>}
+          {currentUser.units && <h4>My records</h4>}
           {show && <Data />}
-          {/* {show && <DataGraph />} */}
+          {show && <DataGraph />}
         </Row>
       </Container>
       <Footer />
