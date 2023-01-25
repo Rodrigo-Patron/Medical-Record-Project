@@ -6,7 +6,7 @@ import { MedicalContext } from "../../MedicalContext";
 import { NavLink } from "react-router-dom";
 
 const Edit = () => {
-  const { setUser, currentUser, setCurrentUser, setCurrentUserV2 } =
+  const { user, setUser, currentUser, setCurrentUserV2 } =
     useContext(MedicalContext);
 
   const { recordId } = useParams();
@@ -26,10 +26,17 @@ const Edit = () => {
           ? { ...item, number: inputValue.current.value }
           : item
       );
+      const updatedCurrentUser = { ...currentUser, units: editedUnits };
 
-      // WE NEED TO UPDATE THE CURRENT USER INPUT
-      setCurrentUserV2(editedUnits);
+      const filteredUsers = user.filter(
+        (item) => item.userId !== currentUser.userId
+      );
+      filteredUsers.push(updatedCurrentUser);
 
+      //TO UPDATE THE CURRENT USER DATA
+      setUser(filteredUsers);
+      setCurrentUserV2(updatedCurrentUser);
+      console.log(user);
       navigate("/main");
     }
   };
