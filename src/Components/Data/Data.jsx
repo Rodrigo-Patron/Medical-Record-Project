@@ -6,8 +6,7 @@ import { MedicalContext } from "../../MedicalContext";
 import { Col, Row } from "react-bootstrap";
 
 const Data = () => {
-  const { units, setUnits, currentUser, setCurrentUserV2, setCurrentUser } =
-    useContext(MedicalContext);
+  const { currentUser, setCurrentUserV2 } = useContext(MedicalContext);
   console.log(currentUser);
 
   //& Deleting task function

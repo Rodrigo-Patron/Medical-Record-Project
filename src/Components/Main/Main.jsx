@@ -35,9 +35,6 @@ const Main = () => {
 
     const check = findUser.units || [];
     findUser.units = [
-      // {
-      //   userId: currentUser.userId,
-      // },
       {
         date: inputValueDate.current.value,
         recordId: uuidv4(),
